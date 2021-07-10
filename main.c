@@ -370,8 +370,8 @@ void display_list()
         while(ptr!=NULL)
         {
             printf("%d\t",ptr->id);     printf("%s\t",ptr->fname);
-            printf("%s\t",ptr->lname);  printf("%d\t",ptr->day);
-            printf("%d\t",ptr->month);  printf("%d\t",ptr->year);
+            printf("%s\t",ptr->lname);  printf("%d/",ptr->day);
+            printf("%d/",ptr->month);  printf("%d\t",ptr->year);
             printf("%f\t",ptr->score);  printf("\n ");
             ptr=ptr->next ;
         }
@@ -395,8 +395,8 @@ void display_array(struct student* ptr_display, int num_inserted_display)
         while(ii < num_inserted_display)
         {
             printf("%d\t",(ptr_display+ii)->id);     printf("%s\t",(ptr_display+ii)->fname);
-            printf("%s\t",(ptr_display+ii)->lname);  printf("%d\t",(ptr_display+ii)->day);
-            printf("%d\t",(ptr_display+ii)->month);  printf("%d\t",(ptr_display+ii)->year);
+            printf("%s\t",(ptr_display+ii)->lname);  printf("%d/",(ptr_display+ii)->day);
+            printf("%d/",(ptr_display+ii)->month);  printf("%d\t",(ptr_display+ii)->year);
             printf("%f\t",(ptr_display+ii)->score);  printf("\n ");
             ii++;
 
