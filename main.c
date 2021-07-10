@@ -352,4 +352,53 @@ void insert_array_mid(struct student *ptr1, int num_inserted)
 
     }
 }
+void display_list()
+{
+    struct student *ptr;
+    if(head==NULL)
+    {
+        printf("\n Linked List is empty\n");
+        return;
+    }
+    else
+    {
+        ptr=head;
+        printf("\nThe Linked List of student are:\n");
+        printf("\n ");
+        while(ptr!=NULL)
+        {
+            printf("%d\t",ptr->id);     printf("%s\t",ptr->fname);
+            printf("%s\t",ptr->lname);  printf("%d\t",ptr->day);
+            printf("%d\t",ptr->month);  printf("%d\t",ptr->year);
+            printf("%f\t",ptr->score);  printf("\n ");
+            ptr=ptr->next ;
+        }
+        printf("\nThe size of the List = %d Byte\n",N*sizeof(struct student));
+    }
+    return;
 
+}
+void display_array(struct student* ptr_display, int num_inserted_display)
+{
+    if(num_inserted_display == 0)
+    {
+        printf("\n Array list is empty\n");
+        return;
+    }
+    else
+    {
+        printf("\nThe Array list of student are:\n");
+        printf("\n ");
+        ii=0;
+        while(ii < num_inserted_display)
+        {
+            printf("%d\t",(ptr_display+ii)->id);     printf("%s\t",(ptr_display+ii)->fname);
+            printf("%s\t",(ptr_display+ii)->lname);  printf("%d\t",(ptr_display+ii)->day);
+            printf("%d\t",(ptr_display+ii)->month);  printf("%d\t",(ptr_display+ii)->year);
+            printf("%f\t",(ptr_display+ii)->score);  printf("\n ");
+            ii++;
+
+        }
+    }
+    return;
+}
