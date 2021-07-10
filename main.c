@@ -1,4 +1,6 @@
-
+//Sec:3 BN:2 Name: عزالدين احمد عثمان
+//Sec:3 BN:3 Name: علاء ربيع سالم
+//Sec:3 BN:5 Name: علي ماهر عبدالسلام
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
