@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -226,3 +227,129 @@ void insert_list_mid()
         ptr->next=temp;
     }
 }
+void insert_array_begin(struct student* ptr1,int num_inserted1)
+{
+    if(num_inserted_arr==0)
+    {
+        goto insert;
+        return;
+    }
+    else //there is elements at the beginning
+    {
+        for (ii=1; ii<=num_inserted1 ;ii++)
+        {
+            strncpy((ptr1+num_inserted1-(ii-1))->fname , (ptr1+(num_inserted1-ii))->fname , 20);
+            strncpy((ptr1+num_inserted1-(ii-1))->lname , (ptr1+(num_inserted1-ii))->lname , 20);
+            (ptr1+num_inserted1-(ii-1))->id    = (ptr1+(num_inserted1-ii))->id;      //5 inserted => ptr+5=ptr+4  and ptr+4=ptr+3....
+            (ptr1+num_inserted1-(ii-1))->day   = (ptr1+(num_inserted1-ii))->day ;
+            (ptr1+num_inserted1-(ii-1))->month = (ptr1+(num_inserted1-ii))->month;
+            (ptr1+num_inserted1-(ii-1))->year  = (ptr1+(num_inserted1-ii))->year;
+            (ptr1+num_inserted1-(ii-1))->score = (ptr1+(num_inserted1-ii))->score;
+        }
+
+    }
+
+    insert:
+    printf("\n Enter the data of student:\n");
+    printf(" id: ");                 scanf("%d",&ptr1->id);
+    printf("\n first name: ");       scanf("%s",ptr1->fname);
+    printf("\n last name: ");        scanf("%s",ptr1->lname);
+    printf("\n day of birth: ");     scanf("%d",&ptr1->day);
+    printf("\n month of birth: ");   scanf("%d",&ptr1->month);
+    printf("\n year of birth: ");    scanf("%d",&ptr1->year);
+    printf("\n Score: ");            scanf("%f",&ptr1->score);
+};
+void insert_array_end(struct student *ptr, int num_inserted)
+{
+
+    if (num_inserted==0)
+   {
+        printf("\n Enter the data of student:\n");
+        printf(" id: ");               scanf("%d",&ptr->id);
+        printf("\n first name: ");     scanf("%s",ptr->fname);
+        printf(" last name: ");        scanf("%s",ptr->lname);
+        printf("\n day of birth: ");   scanf("%d",&ptr->day);
+        printf(" month of birth: ");   scanf("%d",&ptr->month);
+        printf(" year of birth: ");    scanf("%d",&ptr->year);
+        printf("\n Score: ");          scanf("%f",&ptr->score);
+   }
+   else
+   {
+        printf("\n Enter the data of student:\n");
+        printf(" id: ");               scanf("%d",&(ptr+(num_inserted))->id);
+        printf("\n first name: ");     scanf("%s",(ptr+(num_inserted))->fname);
+        printf(" last name: ");        scanf("%s",(ptr+(num_inserted))->lname);
+        printf("\n day of birth: ");   scanf("%d",&(ptr+(num_inserted))->day);
+        printf(" month of birth: ");   scanf("%d",&(ptr+(num_inserted))->month);
+        printf(" year of birth: ");    scanf("%d",&(ptr+(num_inserted))->year);
+        printf("\n Score: ");          scanf("%f",&(ptr+(num_inserted))->score);
+    }
+
+}
+void insert_array_mid(struct student *ptr1, int num_inserted)
+{
+    if (num_inserted==0)
+    {
+        printf("\n Enter the data of student:\n");
+        printf(" id: ");               scanf("%d",&ptr1->id);
+        printf("\n first name: ");     scanf("%s",ptr1->fname);
+        printf(" last name: ");        scanf("%s",ptr1->lname);
+        printf("\n day of birth: ");   scanf("%d",&ptr1->day);
+        printf(" month of birth: ");   scanf("%d",&ptr1->month);
+        printf(" year of birth: ");    scanf("%d",&ptr1->year);
+        printf("\n Score: ");          scanf("%f",&ptr1->score);
+
+    }
+    else if (num_inserted%2==0) //even
+    {
+        //n=n+1, n-1=n, .....
+        for (ii=1; ii<=((num_inserted/2)+1) ;ii++)
+        {
+            strncpy((ptr1+num_inserted-(ii-1))->fname , (ptr1+(num_inserted-ii))->fname , 20);
+            strncpy((ptr1+num_inserted-(ii-1))->lname , (ptr1+(num_inserted-ii))->lname , 20);
+            (ptr1+num_inserted-ii+1)->id    = (ptr1+(num_inserted-ii))->id;      //4 inserted => ptr+4=ptr+3  and ptr+3=ptr+2....
+            (ptr1+num_inserted-ii+1)->day   = (ptr1+(num_inserted-ii))->day ;
+            (ptr1+num_inserted-ii+1)->month = (ptr1+(num_inserted-ii))->month;
+            (ptr1+num_inserted-ii+1)->year  = (ptr1+(num_inserted-ii))->year;
+            (ptr1+num_inserted-ii+1)->score  = (ptr1+(num_inserted-ii))->score;
+        }
+
+        num_inserted=(num_inserted/2);
+        printf("\n Enter the data of student:\n");
+        printf(" id: ");               scanf("%d",&(ptr1+(num_inserted))->id);
+        printf("\n first name: ");     scanf("%s",(ptr1+(num_inserted))->fname);
+        printf(" last name: ");        scanf("%s",(ptr1+(num_inserted))->lname);
+        printf("\n day of birth: ");   scanf("%d",&(ptr1+(num_inserted))->day);
+        printf(" month of birth: ");   scanf("%d",&(ptr1+(num_inserted))->month);
+        printf(" year of birth: ");    scanf("%d",&(ptr1+(num_inserted))->year);
+        printf("\n Score: ");          scanf("%f",&(ptr1+(num_inserted))->score);
+
+    }
+
+    else if (num_inserted%2 != 0) //odd
+    {
+        //n=n+1, n-1=n, .....
+        for (ii=1; ii<=((num_inserted/2)+1) ;ii++)
+        {
+            strncpy((ptr1+num_inserted-(ii-1))->fname , (ptr1+(num_inserted-ii))->fname , 20);
+            strncpy((ptr1+num_inserted-(ii-1))->lname , (ptr1+(num_inserted-ii))->lname , 20);
+            (ptr1+num_inserted-ii+1)->id    = (ptr1+(num_inserted-ii))->id;      //4 inserted => ptr+4 "5"=ptr+3 "4"  and ptr+3 "4"=ptr+2 "3{last}"....
+            (ptr1+num_inserted-ii+1)->day   = (ptr1+(num_inserted-ii))->day ;
+            (ptr1+num_inserted-ii+1)->month = (ptr1+(num_inserted-ii))->month;
+            (ptr1+num_inserted-ii+1)->year  = (ptr1+(num_inserted-ii))->year;
+            (ptr1+num_inserted-ii+1)->score  = (ptr1+(num_inserted-ii))->score;
+        }
+
+        num_inserted=(num_inserted/2);
+        printf("\n Enter the data of student:\n");
+        printf(" id: ");               scanf("%d",&(ptr1+(num_inserted))->id);
+        printf("\n first name: ");     scanf("%s",(ptr1+(num_inserted))->fname);
+        printf(" last name: ");        scanf("%s",(ptr1+(num_inserted))->lname);
+        printf("\n day of birth: ");   scanf("%d",&(ptr1+(num_inserted))->day);
+        printf(" month of birth: ");   scanf("%d",&(ptr1+(num_inserted))->month);
+        printf(" year of birth: ");    scanf("%d",&(ptr1+(num_inserted))->year);
+        printf("\n Score: ");          scanf("%f",&(ptr1+(num_inserted))->score);
+
+    }
+}
+
