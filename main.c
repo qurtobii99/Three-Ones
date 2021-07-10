@@ -126,3 +126,103 @@ int main()
         }
     return 0;
 }
+void insert_list_begin()
+{
+    struct student *temp;
+    temp=(struct student *)malloc(sizeof(struct student));
+    if(temp==NULL)
+    {
+        printf("\n Out of Memory Space\n");
+        return;
+    }
+    printf("\n Enter the data of student:\n");
+    printf(" id: "); scanf("%d",&temp->id);
+    printf("\n first name: ");     scanf("%s",temp->fname);
+    printf(" last name: ");        scanf("%s",temp->lname);
+    printf("\n day of birth: ");   scanf("%d",&temp->day);
+    printf(" month of birth: ");   scanf("%d",&temp->month);
+    printf(" year of birth: ");    scanf("%d",&temp->year);
+    printf("\n Score: ");          scanf("%f",&temp->score);
+    temp->next =NULL;
+    if(head==NULL)
+    {
+        head=temp;
+    }
+    else
+    {
+        temp->next=head;
+        head=temp;
+    }
+}
+void insert_list_end()
+{
+    struct student *temp,*ptr;
+    temp=(struct student *)malloc(sizeof(struct student));
+    if(temp==NULL)
+    {
+        printf("\n Out of Memory Space \n");
+        return;
+    }
+    printf("\n Enter the data of student:\n");
+    printf(" id: ");               scanf("%d",&temp->id);
+    printf("\n first name: ");     scanf("%s",temp->fname);
+    printf(" last name: ");        scanf("%s",temp->lname);
+    printf("\n day of birth: ");   scanf("%d",&temp->day);
+    printf(" month of birth: ");   scanf("%d",&temp->month);
+    printf(" year of birth: ");    scanf("%d",&temp->year);
+    printf("\n Score: ");          scanf("%f",&temp->score);
+    temp->next =NULL;
+    if(head==NULL)
+    {
+        head=temp;
+    }
+    else
+    {
+        ptr=head;
+        while(ptr->next !=NULL)
+        {
+            ptr=ptr->next ;
+        }
+        ptr->next =temp;
+    }
+}
+void insert_list_mid()
+{
+    struct student *ptr,*temp;
+    int i;
+    int pos=num_inserted_list/2;
+    temp=(struct student *)malloc(sizeof(struct student));
+    if(temp==NULL)
+    {
+        printf("\n Out of Memory Space:\n");
+        return;
+    }
+    printf("\n Enter the data of student:\n");
+    printf(" id: "); scanf("%d",&temp->id);
+    printf("\n first name: ");     scanf("%s",temp->fname);
+    printf(" last name: ");        scanf("%s",temp->lname);
+    printf("\n day of birth: ");   scanf("%d",&temp->day);
+    printf(" month of birth: ");   scanf("%d",&temp->month);
+    printf(" year of birth: ");    scanf("%d",&temp->year);
+    printf("\n Score: ");          scanf("%f",&temp->score);
+    temp->next=NULL;
+    if(pos==0)
+    {
+        temp->next=head;
+        head=temp;
+    }
+    else
+    {
+        for(i=0,ptr=head;i<pos-1;i++)
+        {
+            ptr=ptr->next;
+            if(ptr==NULL)
+            {
+                printf("\n Position not found:[Handle with care] \n");
+                return;
+            }
+        }
+        temp->next =ptr->next ;
+        ptr->next=temp;
+    }
+}
